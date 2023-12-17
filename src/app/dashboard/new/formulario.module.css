@@ -1,0 +1,19 @@
+.form {
+display: flex;
+flex-direction: column;
+gap:1rem
+}
+
+.form input{
+    background-color: rgb(221, 211, 211);
+    color:black;
+    border: none;
+    border-radius: .3rem;
+    padding: 5px;
+    outline: none;
+    
+}
+.form input:hover{
+  cursor: pointer;
+    
+}
