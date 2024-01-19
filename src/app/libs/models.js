@@ -79,10 +79,10 @@ const ReservaSchema = new mongoose.Schema({
   sede: String,
 });
 
-export const User = mongoose.models.User || mongoose.model("User", UserSchema);
+export const User = mongoose.models?.User || mongoose.model("User", UserSchema);
 export const Products =
-  mongoose.models.Products || mongoose.model("Products", ProductsSchema);
+  mongoose.models?.Products || mongoose.model("Products", ProductsSchema);
 export const Sedes =
-  mongoose.models.Sedes || mongoose.model("Sedes", SedeSchemma);
+  mongoose.models?.Sedes || mongoose.model("Sedes", SedeSchemma);
 export const Reservas =
-  mongoose.models.Reservas || mongoose.model("Reservas", ReservaSchema);
+  mongoose.models?.Reservas || mongoose.model("Reservas", ReservaSchema);

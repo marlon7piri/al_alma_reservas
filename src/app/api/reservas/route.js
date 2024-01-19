@@ -6,7 +6,7 @@ export async function GET() {
   try {
     connectDb();
     const data = await Reservas.find({});
-
+console.log(data);
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json({ message: "Error" });

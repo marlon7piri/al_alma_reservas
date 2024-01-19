@@ -1,22 +1,54 @@
+"use client";
+
 import React, { useState } from "react";
 import styles from "./CardReserva.module.css";
 import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
+import { useRouter } from "next/navigation";
 
-export const Filtros = (/* { setComensales, setFecha, fecha } */) => {
-  const [selectedDate, setSelectedDate] = useState("")
+export const Filtros = ({
+  tablareservas,
+  setReservas,
+  setFecha,
+  setComensales,
+  comensales,
+  fecha,
+}) => {
+  const [selectedDate, setSelectedDate] = useState("");
+  const router = useRouter();
 
-  
-  /* const manejarFuncionCheck = (e) => {
+  const manejarFuncionCheck = (e) => {
     setComensales(e.target.value);
+    filtrarReservasPorComensales(e.target.value);
   };
 
-  const handlerDate = (date) => {
-    setSelectedDate(date)
-    setFecha(new Date(date).toISOString().split("T")[0]);
-    
-  }; */
+  const handlerDate = (e) => {
+    console.log(e.target.value);
+    setFecha(new Date(e.target.value).toISOString().split("T")[0]);
+    console.log(fecha);
+    filtrarReservasPorFecha();
+  };
+
+  const filtrarReservasPorFecha = () => {
+    const result = tablareservas.filter((reserva) => {
+      return reserva.fecha === fecha;
+    });
+    setReservas(result);
+    router.refresh();
+  };
+
+  const filtrarReservasPorComensales = (valor) => {
+    const reservasfiltradas = tablareservas.sort((a, b) => {
+      if (valor == "mayor") {
+        return b.comensales - a.comensales;
+      } else if (valor == "menor") {
+        return a.comensales - b.comensales;
+      }
+    });
+    setReservas(reservasfiltradas);
+    router.refresh();
+  };
   return (
     <div className={styles.container_filtros}>
       <div className="flex gap-2 justify-center items-center ">
@@ -24,7 +56,7 @@ export const Filtros = (/* { setComensales, setFecha, fecha } */) => {
         <select
           name=""
           id=""
-        /*   onChange={manejarFuncionCheck} */
+          onChange={manejarFuncionCheck}
           className="p-2 rounded-md hover:cursor-pointer"
         >
           <option value="menor"></option>
@@ -35,16 +67,21 @@ export const Filtros = (/* { setComensales, setFecha, fecha } */) => {
 
       <div className="flex gap-2 justify-center items-center my-8">
         <label className="font-semibold mr-2">Fecha:</label>
-        {/*  <input type="date" value={fecha} className="p-2 rounded-md hover:cursor-pointer"  onChange={handlerDate}/> */}
-        <DatePicker
-         /*  onChange={handlerDate} */
+        <input
+          type="date"
+          value={fecha}
+          className="p-2 rounded-md hover:cursor-pointer"
+          onChange={handlerDate}
+        />
+        {/*   <DatePicker
+          onChange={handlerDate}
           value={selectedDate}
           name="fecha"
-         /*  selected={selectedDate} */
+          selected={selectedDate}
           format="yyyy-MM-dd"
           required
           className="p-2 rounded-md hover:cursor-pointer"
-        />
+        /> */}
       </div>
     </div>
   );

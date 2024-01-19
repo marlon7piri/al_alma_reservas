@@ -24,7 +24,7 @@ const Formulario = () => {
 
       console.log(result);
       setIsloading(false);
-      router.push("/sedes");
+      router.push("/dashboard/sedes");
     } catch (error) {
       console.log(error);
     }

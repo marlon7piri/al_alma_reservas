@@ -1,42 +1,26 @@
-"use client";
+
 
 import React from "react";
 import { Filtros } from "./Filtros";
 import ListReservas from "./ListReservas";
 import { fetchReservas } from "@/app/libs/data";
+import { getReservas } from "@/app/controllers/reservas";
 
 
 
 
-export default async function Sedes({ params }) {
+export default async function Sedes() {
 
-  const reservas = await fetchReservas()
- /*  const [comensales, setComensales] = useState(null);
-  const [fecha, setFecha] = useState("");
-
-
-
-  useEffect(() => {
-    const fechaActual = new Date().toISOString().split("T")[0];
-
-   
-
-    setFecha(fechaActual);
-    getReservas();
-  }, []); */
-
+  const data = await fetchReservas()
+ 
   return (
     <div>
       <h1>Reservas</h1>
 
       <div className=" w-full h-full p-4 ">
-        {/*  <Filtros
-          setComensales={setComensales}
-          setFecha={setFecha}
-          fecha={fecha}
-        /> */}
+      
 
-        <ListReservas reservas={reservas} />
+        <ListReservas data={data} />
       </div>
     </div>
   );
