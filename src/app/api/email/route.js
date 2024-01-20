@@ -3,9 +3,9 @@ import { NextResponse, NextRequest } from "next/server";
 import { Resend } from "resend";
 
 /* import  palindromoFecha  from "@/app/reservar/page"; */
+const resend = new Resend(process.env.KEY_RESEND);
 
 export async function POST(req, res) {
-  const resend = new Resend(process.env.KEY_RESEND);
 
   const reserva = await req.json();
 

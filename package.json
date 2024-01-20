@@ -19,7 +19,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "recharts": "^2.10.1",
-    "resend": "^1.1.0",
+    "resend": "^3.0.0",
     "sonner": "^1.2.0"
   },
   "devDependencies": {
