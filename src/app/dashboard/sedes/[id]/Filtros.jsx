@@ -26,7 +26,6 @@ export const Filtros = ({
   const handlerDate = (e) => {
     console.log(e.target.value);
     setFecha(new Date(e.target.value).toISOString().split("T")[0]);
-    console.log(fecha);
     filtrarReservasPorFecha();
   };
 
