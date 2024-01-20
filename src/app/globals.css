@@ -19,20 +19,16 @@
 }
 
 .layout {
-  background-image: #dfe4ea;
-  border: 1px #006266 solid;
+  width: 100%;
+  min-height: 100vh;
+  overflow: scroll;
+  background-image: url(/images/fondo.jpg);
+  
+
+ 
 }
 
-.input {
-  /*   border: none;
-  outline: none;
-  border-radius: 15px;
 
-  padding: 1em;
-  background-color: #cccccc00;
-  box-shadow: inset 2px 5px 10px rgba(185, 180, 180, 0.729);
-  transition: 300ms ease-in-out; */
-}
 
 .input:focus {
   background-color: white;
@@ -40,62 +36,7 @@
   box-shadow: 13px 13px 100px #cfcece, -13px -13px 100px #ffffff;
 }
 
-.btn {
-  --color: #f5f8f7;
-  --color2: rgb(10, 25, 30);
-  padding: 0.8em 1.75em;
-  background-color: rgb(10, 9, 9);
-  border-radius: 6px;
-  border: 0.3px solid var(--color);
-  transition: 0.5s;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  z-index: 1;
-  font-weight: 300;
-  font-size: 17px;
-  font-family: "Roboto", "Segoe UI", sans-serif;
-  text-transform: uppercase;
-  color: var(--color);
-}
 
-.btn::after,
-.btn::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  transform: skew(90deg) translate(-50%, -50%);
-  position: absolute;
-  inset: 50%;
-  left: 25%;
-  z-index: -1;
-  transition: 0.5s ease-out;
-  background-color: var(--color);
-}
-
-.btn::before {
-  top: -50%;
-  left: -25%;
-  transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btn:hover::before {
-  transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-
-.btn:hover::after {
-  transform: skew(45deg) translate(-50%, -50%);
-}
-
-.btn:hover {
-  color: var(--color2);
-}
-
-.btn:active {
-  filter: brightness(0.7);
-  transform: scale(0.98);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -106,13 +47,16 @@
 }
 
 .menu_container {
-  width: 25%;
-  height: 100vh;
+  width: 100%;
   background-color: #006266;
   font-size: 14px;
   color: white;
-  padding: 10px;
+  padding: 20px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
 }
 
 .menu_hamburguesa {
@@ -122,6 +66,9 @@
 .menu {
   background-color: #006266;
   color: white;
+  font-weight: 700;
+  display: flex;
+  gap:2rem;
 }
 
 @media (width < 600px) {
@@ -151,6 +98,7 @@
     transform: translateX(-220px);
     transition: 0.3s;
     padding: 40px;
+    z-index: 900;
   }
 
   .open_menu {

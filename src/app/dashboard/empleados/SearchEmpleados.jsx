@@ -23,7 +23,7 @@ import React from "react";
   }
 
   return( 
-    <div>
+    <div className="w-full">
         <input type="text" onChange={handlerChange} placeholder={placeholder} />
         <Link href="/dashboard/empleados/nuevo">Nuevo Usuario</Link>
     </div>

@@ -1,19 +1,15 @@
-import React from 'react'
-import Aside from '../components/Aside'
+import React from "react";
+import Aside from "../components/Aside";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
-    <div className=" min-h-screen flex w-full h-screen">
-          
-    <Aside />
-
-    <div className="p-4 w-[90%] h-full overflow-scroll">
-      <div className="layout overflow-scroll  w-[100%] h-full rounded-2xl shadow-2xl">
+    <div className="w-full h-screen overflow-scroll">
+      <Aside />
+      <div className="layout overflow-scroll  w-full h-full  shadow-2xl">
         {children}
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

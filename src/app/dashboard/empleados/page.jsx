@@ -14,7 +14,7 @@ import { fetchUser } from "../../libs/data";
   const data = await fetchUser();
 
   return (
-    <div>
+    <div className="w-full h-full flex flex-col justify-center items-start">
       <SearchEmpleados placeholder="Buscar un empleado..."/>
       <ListEmpleados data={data}/>
     </div>

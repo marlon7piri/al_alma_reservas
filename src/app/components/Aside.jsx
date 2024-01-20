@@ -54,22 +54,18 @@ function Aside() {
 
   return (
     <div className="menu_container">
+      <p className="text-2xl font-bold">Al Alma Restaurante</p>
       <div className="menu" id="menu">
         {links.map((link) => {
           return (
             <Link
               href={link.href} onClick={() => handlerClick()}
-              className={` mt-2 w-full flex gap-2 hover:bg-gray-900 duration-300  px-4 py-2 rounded-md ${
-                pathname === link.href ? "bg-sky-500 text-gray-900" : ""
+              className={` text-slate-50  transition duration-300  hover:text-slate-900 ${
+                pathname === link.href ? "text-slate-900" : ""
               }`}
               key={link.label}
             >
-              <Image
-                src={link.icon}
-                width={24}
-                height={24}
-                alt="iconos del aside"
-              />
+             
               <p className="">{link.label}</p>
             </Link>
           );

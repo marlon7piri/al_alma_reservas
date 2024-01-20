@@ -14,7 +14,7 @@ export default async function Sedes() {
   const data = await fetchReservas()
  
   return (
-    <div>
+    <div className="">
       <h1>Reservas</h1>
 
       <div className=" w-full h-full p-4 ">
