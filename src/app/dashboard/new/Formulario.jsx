@@ -25,12 +25,16 @@ const Formulario = () => {
       console.log(result);
       setIsloading(false);
       router.push("/dashboard/sedes");
+      router.refresh()
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <form onSubmit={handleSubmit(createReserva)} className={styles.form}>
+      
+
+
       <input
         type="text"
         placeholder="Nombre..."
@@ -59,11 +63,13 @@ const Formulario = () => {
           required: true,
         })}
       />
-      <select name="" id="" {...register("sede")}>
+      <select name="" id="" {...register("sede")} className="border border-slate-900 rounded-md p-2 cursor-pointer">
         <option value="casco">Casco</option>
         <option value="san francisco">San francisco</option>
       </select>
-      <input type="submit" value={isloading ? "creando..." : "Crear"} />
+      <input type="submit" value={isloading ? "creando..." : "Crear"} className="bg-[#006266] px-2 w-full hover:bg-slate-900 hover:text-slate-50"/>
+      
+     
     </form>
   );
 };

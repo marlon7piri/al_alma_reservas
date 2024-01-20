@@ -12,7 +12,7 @@ import React from "react";
         return (
           <Link
             key={e._id}
-            className="bg-[#FCF9F9] ml-4 p-4 rounded-2xl lg:w-[400px] sm:min-w-[300px]  lg:text-xl sm:text-[14px] hover:scale-105 duration-500 hover:shadow-gray-950 shadow-2xl min-h-[200px] h-[250px]"
+            className="bg-[#006266] text-slate-50 font-semibold ml-4 p-4 rounded-2xl lg:w-[400px] sm:min-w-[300px]  lg:text-xl sm:text-[14px] hover:scale-105 duration-500 shadow-2xl hover:shadow-gray-950  min-h-[200px] h-[250px]"
             href={`/dashboard/sedes/${e.sede}`}
           >
             <h3>Sede: {e.sede}</h3>

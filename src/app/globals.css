@@ -19,18 +19,19 @@
 }
 
 .layout {
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  background-image: #dfe4ea;
+  border: 1px #006266 solid;
 }
 
 .input {
-  border: none;
+  /*   border: none;
   outline: none;
   border-radius: 15px;
 
   padding: 1em;
   background-color: #cccccc00;
   box-shadow: inset 2px 5px 10px rgba(185, 180, 180, 0.729);
-  transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out; */
 }
 
 .input:focus {
@@ -38,23 +39,6 @@
   transform: scale(1.05);
   box-shadow: 13px 13px 100px #cfcece, -13px -13px 100px #ffffff;
 }
-
-/* button {
-  font-family: monospace;
-  background-color: #f3f7fe;
-  color: #3b82f6;
-  border: none;
-  border-radius: 8px;
-  width: 100px;
-  height: 45px;
-  transition: 0.5s;
-}
-
-button:hover {
-  background-color: #070606;
-  box-shadow: 0 0 0 5px #0505055f;
-  color: #fff;
-} */
 
 .btn {
   --color: #f5f8f7;
@@ -113,10 +97,6 @@ button:hover {
   transform: scale(0.98);
 }
 
-
-
-
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -125,59 +105,55 @@ button:hover {
   }
 }
 
-.btn_hambuerguesa {
-  width:40px;
-  display: none;
-
+.menu_container {
+  width: 25%;
+  height: 100vh;
+  background-color: #006266;
+  font-size: 14px;
+  color: white;
+  padding: 10px;
+  position: relative;
 }
 
+.menu_hamburguesa {
+  display: none;
+}
 
 .menu {
-  width: 20%;
-  height: 100vh;
- 
-  font-size: 14px;
-
+  background-color: #006266;
+  color: white;
 }
 
-
 @media (width < 600px) {
-  .menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100px;      
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
-     background-color: rgb(253, 251, 251); 
-    transform: translateX(-1000px); 
-    transition: 0.7s ease;
-    z-index: 300;
-    font-size: 24px;
-  }
-  .btn_hambuerguesa {
-    display: block;
-    z-index: 500;
-  }
-  .menu.active_menu {
-    width:100%;
-    height:100vh;
-    transform: translateX(0px);
-    animation: mover_menu .3s ease-in-out;
+  .menu_container {
+    width: 10%;
+    position: relative;
+    background-color: transparent;
   }
 
-  @keyframes mover_menu {
-    0% {
-      opacity: 0;
-    }
-    
-    100% {
-      opacity: 1;
-    }
+  .menu_hamburguesa {
+    display: block;
+    position: absolute;
+    top: 10;
+    left: 5;
+    z-index: 1000;
+    width: max-content;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 900;
+  }
+  .menu {
+    height: 50vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-220px);
+    transition: 0.3s;
+    padding: 40px;
+  }
+
+  .open_menu {
+    transform: translateX(0px);
   }
 }

@@ -2,7 +2,6 @@
 
 import React from "react";
 
-import Layout from "@/app/components/Layout";
 import { useForm } from "react-hook-form";
 
 function NuevoEmpleado() {
@@ -12,7 +11,7 @@ function NuevoEmpleado() {
     console.log(typeof(data.isAdmin));
   };
   return (
-    <Layout>
+   
       <form
         onSubmit={handleSubmit(Enviar)}
         className=" w-full h-full flex justify-center items-center flex-col gap-2 bg-gray-900 text-gray-700 font-bold"
@@ -64,7 +63,7 @@ function NuevoEmpleado() {
           </div>
         </div>
       </form>
-    </Layout>
+  
   );
 }
 
