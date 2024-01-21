@@ -10,10 +10,10 @@ import { useRouter } from "next/navigation";
 export const Filtros = ({
   tablareservas,
   setReservas,
-  setFecha,
+  setFechaactual,
   setComensales,
   comensales,
-  fecha,
+  fechaactual,
 }) => {
   const [selectedDate, setSelectedDate] = useState("");
   const router = useRouter();
@@ -23,15 +23,15 @@ export const Filtros = ({
     filtrarReservasPorComensales(e.target.value);
   };
 
-  const handlerDate = (e) => {
-    console.log(e.target.value);
-    setFecha(new Date(e.target.value).toISOString().split("T")[0]);
-    filtrarReservasPorFecha();
-  };
+  const handlerDate = (date) => {
+    const fechaok = new Date(date).toISOString().split("T")[0];
 
-  const filtrarReservasPorFecha = () => {
+    filtrarReservasPorFecha(fechaok);
+  };  
+
+  const filtrarReservasPorFecha = (date) => {
     const result = tablareservas.filter((reserva) => {
-      return reserva.fecha === fecha;
+      return reserva.fecha === date;
     });
     setReservas(result);
     router.refresh();
@@ -66,13 +66,13 @@ export const Filtros = ({
 
       <div className="flex gap-2 justify-center items-center my-8">
         <label className="font-semibold mr-2">Fecha:</label>
-        <input
+        {/* <input
           type="date"
-          value={fecha}
+          value={fech}
           className="p-2 rounded-md hover:cursor-pointer"
           onChange={handlerDate}
-        />
-        {/*   <DatePicker
+        /> */}
+        <DatePicker
           onChange={handlerDate}
           value={selectedDate}
           name="fecha"
@@ -80,7 +80,7 @@ export const Filtros = ({
           format="yyyy-MM-dd"
           required
           className="p-2 rounded-md hover:cursor-pointer"
-        /> */}
+        />
       </div>
     </div>
   );

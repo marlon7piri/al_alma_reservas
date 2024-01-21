@@ -14,12 +14,13 @@ export default function ListReservas({ data }) {
   const [tablareservas, setTablareservas] = useState(data);
   const [reservas, setReservas] = useState(data);
   const [comensales, setComensales] = useState(null);
-  const [fecha, setFecha] = useState("");
+  const [fechaactual, setFechaactual] = useState("");
 
   useEffect(() => {
     const fechaActual = new Date().toISOString().split("T")[0];
 
-    setFecha(fechaActual);
+    setFechaactual(fechaActual);
+    console.log(fechaActual)
   }, []);
 
   const deletereserva = async (id) => {
@@ -37,8 +38,8 @@ export default function ListReservas({ data }) {
       <div>
         <Filtros
           tablareservas={tablareservas}
-          setFecha={setFecha}
-          fecha={fecha}
+          setFechaactual={setFechaactual}
+          fechaactual={fechaactual}
           setComensales={setComensales}
           comensales={comensales}
           setReservas={setReservas}
